@@ -16,10 +16,10 @@
         }
         iframe.cal {
             position: fixed;
-            width: 20vw;
+            width: calc(20vw + 30px);
             height: 75vh;
-            filter: grayscale(100%) invert();
-            transform: translate(calc(100vw - 150%), calc(50% - 90px)) scale(2);
+            filter: grayscale(100%) invert() hue-rotate() brightness(2) contrast(1.5);
+            transform: translate(calc(100vw - 150% + 60px), calc(50% - 90px)) scale(2);
             z-index: 1;
         }
         iframe.vid {
@@ -83,7 +83,7 @@
             <path d="M191.267 85.1163H193.77V86.5808C193.191 86.9724 192.493 87.1938 191.811 87.1938C189.989 87.1938 188.44 85.6272 188.44 83.771C188.44 81.9319 189.989 80.3653 191.811 80.3653C192.816 80.3653 193.838 80.8421 194.468 81.6254L196.596 79.7352C195.404 78.4751 193.616 77.7259 191.811 77.7259C188.355 77.7259 185.46 80.4845 185.46 83.771C185.46 87.0576 188.355 89.8332 191.811 89.8332C193.616 89.8332 195.404 89.084 196.596 87.8068V82.9196H191.267V85.1163Z" fill="white"/>
         </svg>
         <marquee behavior=scroll>
-            General Body Meetings are in <span>CSB 101</span> every Friday at 5:30 pm <space></space> Workshops run on weekends in the <span>LMCO CyberLab</span>. Check <span>HackUCF.org/calendar</span> for event times. <space></space> Did you sign your ethics form? <space></space> We are on Discord! <span>HackUCF.org/discord</span> <space></space> Want to get involved? Join us for Operations in the <span>LMCO CyberLab</span> on Tuesdays at 8pm. <space></space> The flyers surrounding the CyberLab are free. Feel free to take one! <space></space> Follow us on Twitter! <span>@HackUCF></span>
+            General Body Meetings are in <span>CSB 101</span> every Friday at 5:30 pm <space></space> Workshops run on weekends in the <span>LMCO CyberLab</span>. Check <span>HackUCF.org/calendar</span> for event times. <space></space> Did you sign your ethics form? <space></space> We are on Discord! <span>HackUCF.org/discord</span> <space></space> Want to get involved? Join us for Operations in the <span>LMCO CyberLab</span> on Tuesdays at 8pm. <space></space> The flyers surrounding the CyberLab are free. Feel free to take one! <space></space> Follow us on Twitter! <span>@HackUCF</span>
         </marquee>
     </div>
 </body>
