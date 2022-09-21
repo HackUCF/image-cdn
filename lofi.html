@@ -40,9 +40,13 @@
             width: 100%;
             margin: 10px auto;
         }
-        marquee {
+        marquee, p {
             margin: 10px 0;
             font-size: 32px;
+        }
+        p {
+            text-align: center;
+            margin: auto;
         }
         span {
             color: #d2990b;
@@ -82,12 +86,50 @@
             <path d="M184.396 89.6289L181.569 85.6101C183.085 84.9971 184.055 83.6518 184.055 81.949C184.055 79.582 182.182 77.9302 179.611 77.9302H174.179V89.6289H177.091V85.9677H178.521L181.092 89.6289H184.396ZM177.091 80.5867H179.338C180.343 80.5867 181.058 81.1316 181.058 81.949C181.058 82.7663 180.343 83.3113 179.338 83.3113H177.091V80.5867Z" fill="white"/>
             <path d="M191.267 85.1163H193.77V86.5808C193.191 86.9724 192.493 87.1938 191.811 87.1938C189.989 87.1938 188.44 85.6272 188.44 83.771C188.44 81.9319 189.989 80.3653 191.811 80.3653C192.816 80.3653 193.838 80.8421 194.468 81.6254L196.596 79.7352C195.404 78.4751 193.616 77.7259 191.811 77.7259C188.355 77.7259 185.46 80.4845 185.46 83.771C185.46 87.0576 188.355 89.8332 191.811 89.8332C193.616 89.8332 195.404 89.084 196.596 87.8068V82.9196H191.267V85.1163Z" fill="white"/>
         </svg>
-        <marquee behavior=scroll>
-            General Body Meetings are in <span>CSB 101</span> every Friday at 5:30 pm <space></space> Workshops run on weekends in the <span>LMCO CyberLab</span>. Check <span>HackUCF.org/calendar</span> for event times. <space></space> Did you sign your ethics form? <space></space> We are on Discord! <span>HackUCF.org/discord</span> <space></space> Want to get involved? Join us for Operations in the <span>LMCO CyberLab</span> on Tuesdays at 8pm. <space></space> The flyers surrounding the CyberLab are free. Feel free to take one! <space></space> Follow us on Twitter! <span>@HackUCF</span>
-        </marquee>
+        <div id="marquee">
+            
+        </div>
     </div>
     <script type="text/javascript">
-        setInterval(_=> {document.querySelector(".cal").src = document.querySelector(".cal").src}, 3600000);
+        function refreshMarquee() {
+            fetch("https://cdn.hackucf.org/messages.txt")
+                .then(data => {
+                    return data.text();
+                })
+                .then(text => {
+                    const messages = text.split("\n");
+                    console.log(messages)
+                    let output = `<p>Welcome to the <span>LMCO CyberLab!</span></p>`
+                    if (messages.length > 1) {
+                        // Marquee constructor
+                        output = `<marquee behavior=scroll>`
+                        let spacer = `<space></space>`
+                        for (let i = 0; i < messages.length; i++) {
+                            output += messages[i] + spacer;
+                        }
+                        // Clear last spacer
+                        output = output.substring(0, output.length - spacer.length);
+                        output += `</marquee>`
+                    } else if (messages.length == 1) {
+                        // Static text constructor
+                        output = `<p>${messages[0]}</p>`;
+                    }
+
+                    // intentional xss.
+                    document.getElementById("marquee").innerHTML = output;
+                })
+        }
+
+        setInterval(_=> {
+            // Update calendar
+            document.querySelector(".cal").src = document.querySelector(".cal").src;
+
+            // Update marquee
+            refreshMarquee();
+        }, 900000);
+
+        // init marquee
+        refreshMarquee();
     </script>
 </body>
 </html>
