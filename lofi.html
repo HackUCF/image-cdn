@@ -128,6 +128,12 @@
             refreshMarquee();
         }, 900000);
 
+        // change lofi girl (if requested)
+        const url = new URL(window.location.href);
+        if (url.searchParams.get("view")) {
+            document.querySelector(".vid").src = url.searchParams.get("view");
+        }
+
         // init marquee
         refreshMarquee();
     </script>
