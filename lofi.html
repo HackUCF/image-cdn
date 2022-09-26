@@ -128,14 +128,18 @@
                 })
         }
 
-        // Every 5 minutes
+        // Every 15 minutes
         setInterval(_=> {
             // Update calendar
             document.querySelector(".cal").src = document.querySelector(".cal").src;
+        }, 900000);
 
+        // Every minute
+        setInterval(_=> {
             // Update marquee
             refreshMarquee();
-        }, 300000);
+        }, 60000);
+
 
         // As frequent as possible
         setInterval(_=> {
