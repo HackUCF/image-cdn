@@ -49,6 +49,11 @@
             text-align: center;
             margin: auto;
         }
+        p#time {
+            font-size: 24px;
+            opacity: 0.5;
+            margin-top: 5px;
+        }
         span {
             color: #d2990b;
         }
@@ -88,8 +93,10 @@
             <path d="M191.267 85.1163H193.77V86.5808C193.191 86.9724 192.493 87.1938 191.811 87.1938C189.989 87.1938 188.44 85.6272 188.44 83.771C188.44 81.9319 189.989 80.3653 191.811 80.3653C192.816 80.3653 193.838 80.8421 194.468 81.6254L196.596 79.7352C195.404 78.4751 193.616 77.7259 191.811 77.7259C188.355 77.7259 185.46 80.4845 185.46 83.771C185.46 87.0576 188.355 89.8332 191.811 89.8332C193.616 89.8332 195.404 89.084 196.596 87.8068V82.9196H191.267V85.1163Z" fill="white"/>
         </svg>
         <div onclick="refreshMarquee()" id="marquee">
-            
         </div>
+        <p id="time">
+            watch
+        </p>
     </div>
     <script type="text/javascript">
         function refreshMarquee() {
@@ -102,7 +109,7 @@
                     let output = `<p>Welcome to the <span>LMCO CyberLab!</span></p>`
                     if (messages.length > 1) {
                         // Marquee constructor
-                        output = `<marquee behavior=scroll>`
+                        output = `<marquee behavior="scroll">`
                         let spacer = `<space></space>`
                         for (let i = 0; i < messages.length; i++) {
                             output += messages[i] + spacer;
@@ -115,18 +122,26 @@
                         output = `<p>${messages[0]}</p>`;
                     }
 
-                    // intentional xss.
-                    document.getElementById("marquee").innerHTML = output;
+                    if (document.getElementById("marquee").innerHTML != output)
+                        // intentional xss.
+                        document.getElementById("marquee").innerHTML = output;
                 })
         }
 
+        // Every 5 seconds
         setInterval(_=> {
             // Update calendar
             document.querySelector(".cal").src = document.querySelector(".cal").src;
 
             // Update marquee
             refreshMarquee();
-        }, 900000);
+        }, 300000);
+
+        // As frequent as possible
+        setInterval(_=> {
+            now = new Date(Date.now());
+            document.getElementById("time").innerText = now.toLocaleString("en-us", {"dateStyle": "full", "timeStyle": "medium", "calendar": "iso8601"});
+        }, 250)
 
         // change lofi girl (if requested)
         const url = new URL(window.location.href);
