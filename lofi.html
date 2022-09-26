@@ -112,7 +112,8 @@
                         output = `<marquee behavior="scroll">`
                         let spacer = `<space></space>`
                         for (let i = 0; i < messages.length; i++) {
-                            output += messages[i] + spacer;
+                            if (messages[i].replaceAll(" ", "") != "")
+                                output += messages[i] + spacer;
                         }
                         // Clear last spacer
                         output = output.substring(0, output.length - spacer.length);
