@@ -1,9 +1,9 @@
 General Body Meetings are in <span>CSB 101</span> every Friday at 5:30 pm
 Workshops run on weekends in the <span>LMCO CyberLab</span>. Check <span>HackUCF.org/calendar</span> for event times.
 Did you sign your ethics form?
-<span style="color:#CC575D"><b>Hurricane Advisory:</b> We are monitoring Hurricane Ian. For more information, visit</span> <span>ucf.edu/hurricane</span><span style="color:#CC575D"> and</span> <span>hackucf.org/calendar</span><span style="color:#CC575D">. Please stay safe!</span>
+<span style="color:#CC575D"><b>Hurricane Advisory:</b> We are monitoring Hurricane Ian. For more information, visit</span> <span>ucf.edu/hurricane</span><span style="color:#CC575D"> and</span> <span>HackUCF.org/calendar</span><span style="color:#CC575D">for any event cancellations. Please stay safe!</span>
 We are on Discord! <span>HackUCF.org/discord</span>
 Want to get involved? Join us for Operations in the <span>LMCO CyberLab</span> on Tuesdays at 8pm.
 The brochure surrounding the CyberLab are free. Feel free to take one!
 Follow us on Twitter! <span>@HackUCF</span>
-<span style="color:#CC575D"><b>Hurricane Advisory:</b> We are monitoring Hurricane Ian. For more information, visit</span> <span>ucf.edu/hurricane</span><span style="color:#CC575D"> and</span> <span>hackucf.org/calendar</span><span style="color:#CC575D">. Please stay safe!</span>
+<span style="color:#CC575D"><b>Hurricane Advisory:</b> We are monitoring Hurricane Ian. For more information, visit</span> <span>ucf.edu/hurricane</span><span style="color:#CC575D"> and</span> <span>HackUCF.org/calendar</span><span style="color:#CC575D">for any event cancellations. Please stay safe!</span>
