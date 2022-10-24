@@ -1,7 +1,7 @@
-General Clam Clammings are in <span>ClamSB 101</span> every Clamsday at 5:30 pm
-Clamshops run on weekends in the <span>LMCO ClamLab</span>. Check <span>HackUClamF.org/clamendar</span> for event times.
-Did you sign your clamics form?
-We are on Clamcord! <span>HackUlamCF.org/clamcord</span>
-Want to get involved? Join us for Clamerations in the <span>LMCO ClamLab</span> on Clamsdays at 8pm.
-The clamchures surrounding the ClamLab are free. Feel free to clam one!
-Follow us on Clammer! <span>@HackUClamF</span>
+General Body Meetings are in <span>CSB 101</span> every Friday at 5:30 pm
+Workshops run on weekends in the <span>LMCO CyberLab</span>. Check <span>HackUCF.org/calendar</span> for event times.
+Did you sign your ethics form?
+We are on Discord! <span>HackUCF.org/discord</span>
+Want to get involved? Join us for Operations in the <span>LMCO CyberLab</span> on Tuesdays at 8pm.
+The brochures surrounding the CyberLab are free. Feel free to take one!
+Follow us on Twitter! <span>@HackUCF</span>
