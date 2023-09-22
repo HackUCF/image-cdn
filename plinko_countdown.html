@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Are We Plinko Yet?</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        html {
+            margin: 0;
+            background: black;
+            color: white;
+            font-family: sans-serif;
+            padding-top: calc(50vh - 250px); 
+        }
+        body {
+            text-align: center;
+        }
+        h1 {
+            font-size: 72px;
+            margin: 3px;
+        }
+        p {
+            font-size: 32px;
+            margin: 3px;
+            opacity: 0.75;
+        }
+    </style>
+    <script type="text/javascript">
+        function update() {
+            fetch("https://api.divi.sh/cors/get?url=https://hr.plinko.horse/plinko/waitlist?c=" + Date.now()).then(data => {
+                return data.json();
+            }).then(json => {
+                document.getElementById("status").innerText = json.status;
+                document.getElementById("signups").innerText = json.signups;
+
+                if (json.status === "Open") {
+                    document.getElementById("status").style.color = "#57CC7F";
+                } else if (json.status === "Closed") {
+                    document.getElementById("status").style.color = "#CC575D";
+                } else {
+                    document.getElementById("status").style.color = "#D2990B";
+                }
+            });
+        }
+
+        update();
+        setInterval(update, 30 * 1000);
+    </script>
+</head>
+<body>
+    <h1 id="status">Loading...</h1>
+    <p>Waitlist Status</p>
+    <br>
+    <h1 id="signups">Loading...</h1>
+    <p>Current Sign-Ups</p>
+</body>
+</html>
