@@ -1,15 +1,13 @@
 <span>Introducing the new <i>Equestrian Gaming Wiki</i> from Horse Plinko, Inc.!</span> Learn about Horse Plinko and other equestrian games on our brand-new wiki. Visit it at <i>10.0.<red>t</red>.1</i> today!
-<span>Writing: <i>It's important!</i></span> Injects are worth 45% of your score, and will be added at the end of the competition.
-<span>Breaking News!<span> The Horse Liberation Front is threatening to target America's first Horse Plinko competition!
+<span>Writing: <i>It's important!</i></span> Injects are worth 35% of your score, and will be added at the end of the competition.
+<span>Breaking News!<span> The Horse Liberation Front has published a manifesto warning of the "Plinkularity" on their website, <span>liberation.horse/blog/plinkularity/</span>.
 <span>Have You Seen Them?<span> Members of the Horse Liberation Front have been seen in Orlando, Florida. If you see something, say something: report them at <i>(407) 555-1337</>.
-<span>Black Team Flags:</span> They're worth 10% of your score! They will be added to your score when the environment closes.
-<span>Plinko Madness!</span> The University of Central Florida is seeing crowds as it hosts the first-ever Horse Plinko in the United States in the newly-branded Horse Plinko Stadium.
-<span>STUDENT PROTEST:</span> Activists are protesting at UCF for its hosting of Horse Plinko, citing the high mortality rate of the sport. In a statement, Horse Plinko, Inc. stated that "Horse Plinko is completely safe, we swear!"
+<span>STUDENT PROTEST:</span> Activists are protesting at UCF for its support of Horse Plinko, citing the high mortality rate of the sport. In a statement, Horse Plinko, Inc. stated that "Horse Plinko is completely safe, we swear!"
 <span>Who is the HLF?</span> Journalists are trying to track down the origins and history of the largest anti-equestrian-gaming collective in the world.
 <span><i><b>Praise Equus.</b></i></span>
 <span>What is Horse Plinko?</span> It's a game where you plink horses. A horse is dropped from a massive plinko board. That's all you need to know.
-<span>Like the Horse Plinko Cyber Challenge?</span> You should join Hack@UCF, the University of Central Florida's cybersecurity club. Meetings resume in Fall 2023!
+<span>Like the Horse Plinko Cyber Challenge?</span> You should join Hack@UCF, the University of Central Florida's cybersecurity club!
 <span>Is this a waste of time?</span> I have been writing taglines for this marquee for hours. I have no idea where I am. I'm in a metal tube 30,000 feet above Virginia (I think). Please enjoy Horse Plinko!
+Please don't get hacked.
 <span>Fun Fact!</span> Equus can grant you immortality if you are loyal enough. That's it, that's the post.
-<b>Welcome to the <span>Lockheed Martin Cyber Innovation Lab</span>!</b>
 <span>Reminder:</span> Stay in scope! Breaking scope can lead to consequences, typically disqualification. Don't risk it: check the onboarding packet!
