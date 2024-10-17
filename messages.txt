@@ -1,3 +1,4 @@
+Welcome to the <span style="color: teal">Lockheed Martin Cyber Innovation Lab</span>!
 Follow us on X/Twitter! <span>@HackUCF</span>
 Join Hack@UCF today at <span>Join.HackUCF.org</span>!
 This is called a marquee.
