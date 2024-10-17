@@ -5,6 +5,7 @@ This is called a marquee.
 Did you sign your ethics form?
 Lock your computer! 🚈🚃🚃🚃🚃 
 Want to get involved? Join us for Operations in the <span>LMCO CyberLab</span> on Tuesdays at 7pm.
+<code style="font-family:monospace">flag{h4ckucf_1s_c00l}</code>
 Check out our website at <span>HackUCF.org</span>!
 General Body Meetings are in <span>BA1 119</span> every Friday at 5:30 pm
 We are in your walls <span>liberation.horse</span>
