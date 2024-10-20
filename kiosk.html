@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hack@UCF + CECS Channel</title>
+    <style type="text/css">
+        html {
+            overflow: hidden;
+            background: #1C1C1C;
+            color: white;
+            font-family: "Roboto", sans-serif;
+            cursor: cell!important;
+            --timeout: 60s;
+        }
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+        }
+        .poster {
+            position: fixed;
+            width: 100%;
+            height: calc(100vh - 100px);
+            z-index: 99999;
+            background: black;
+        }
+
+        .else {
+            position: fixed;
+            width: 100vw;
+            height: 100px;
+            transform: translate(0, calc(100vh - 100px));
+            padding: 10px;
+        }
+        .center {
+            width: 100%;
+            margin: 10px auto;
+            text-align: center;
+            position: relative;
+        }
+        .center > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        #logo {
+            animation-name: el1_transition;
+            animation-duration: var(--timeout);
+            animation-iteration-count: infinite;
+        }
+        marquee, p {
+            margin: 15px 0;
+            font-size: 32px;
+            position: absolute;
+            right: 0;
+        }
+        p {
+            text-align: center;
+            margin: auto;
+        }
+        #time {
+            font-size: 42px;
+            margin-top: 5px;
+            color: black;
+            font-weight: bolder;
+        }
+        .time {
+            position: absolute;
+            padding: 25px;
+            background: #D2990B;
+            height: 100px;
+            margin: 0;
+            top: 0;
+            left: 0;
+            z-index: 9999999;
+        }
+        span {
+            color: #d2990b;
+        }
+        space {
+            margin: 0 20px;
+            color: #d2990b;
+            font-weight: bold;
+        }
+        space:after {
+            content: "🛡";
+        }
+        @keyframes el1_transition {
+          0%   {opacity: 0;}
+          5%  {opacity: 0;}
+          45%  {opacity: 0;}
+          50%   {opacity: 1;}
+          95%   {opacity: 1;}
+          100%   {opacity: 0;}
+        }
+        @keyframes el2_transition {
+          0%   {opacity: 1;}
+          5%  {opacity: 1;}
+          45%  {opacity: 1;}
+          50%   {opacity: 0;}
+          95%   {opacity: 0;}
+          100%   {opacity: 1;}
+        }
+        .poster > .img {
+            margin: auto 20px;
+            width: calc(100% - 40px); 
+            height: calc(100% - 40px);
+            position: absolute;
+            display: inline-block;
+            top: calc(50%);
+            transform: translateY(-50%);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        #primary {
+            animation-name: el1_transition;
+            animation-duration: var(--timeout);
+            animation-iteration-count: infinite;
+              animation-play-state: paused;
+        }
+        #secondary {
+            animation-name: el2_transition;
+            animation-duration: var(--timeout);
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kiosk -->
+    <div class="poster" id="primary">
+        <div class="img" style="background-image: url(http://newton.i2lab.ucf.edu/kiosk/CECS_ENG2_Main.jpg)"></div>
+    </div>
+    <div class="poster" id="secondary">
+        <div class="img" style="background-image: url(http://newton.i2lab.ucf.edu/kiosk/ai_flyer-sp20.jpg)"></div>
+    </div>
+
+    <div class="else">
+        <div class="time">
+            <span id="time"></span>
+        </div>
+        <div onclick="refreshMarquee()" id="marquee">
+        </div>
+    </div>
+    <script type="text/javascript">
+        // CORS support is provided complimentary by SenkoAPI.
+        const CORS_PREFIX = "https://api.awoo.dev/cors/get?url=";
+
+        // Sync slideshow (animations + refreshes) with system clock.
+        function getTime() {
+          let date = new Date(Date.now());
+          let second = date.getSeconds();
+          
+          if (second == 0) {
+            // Animation syncing
+            document.querySelector("#primary").style.animationPlayState = "running";
+            document.querySelector("#secondary").style.animationPlayState = "running";
+
+            // Image update syncing (when no transitions are happening)
+            setTimeout(_ => {
+                setInterval(_ => {
+                    // Update marquee
+                    refreshMarquee();
+                    refreshKiosk();
+                }, 30000);
+            }, 15000);
+
+            // Stop sync routine
+            console.log("Timings synced.")
+            clearInterval(timeSync);
+          }
+        }
+        let timeSync = setInterval(function(){
+            getTime();
+        }, 10);
+
+        // Imports a Newton-compatible kiosk manifest.
+        async function getManifest(url) {
+            const manifest = await fetch((CORS_PREFIX + url + "/index.txt").replace("//", "/"));
+            const text = await manifest.text();
+            const lines = text.split("\n");
+
+            let images = []
+
+            // Collate images.
+            for (let line in lines) {
+                line = lines[line]; // idx -> element
+
+                // SPEC VIOLATION: md5 checksum checks are not done.
+                const image_path = line.split("  ");
+                if (image_path.length == 1) {
+                    continue;
+                }
+
+                // Appends image file to list.
+                images.push((url + "/" + image_path[1]).replace("//", "/"));
+            }
+            return images;
+        }
+
+        // Gets kiosk image list.
+        async function getKioskImages() {
+            // Earlier kiosks take precident.
+            const kiosks = [
+                "https://cdn.hackucf.org/kiosk",
+                "http://newton.i2lab.ucf.edu/kiosk"
+            ]
+
+            let images = []
+
+            // Import data
+            for (let kiosk in kiosks) {
+                kiosk = kiosks[kiosk]; // idx -> element
+
+                const kiosk_response = await getManifest(kiosk);
+                images = images.concat(kiosk_response);
+            }
+
+            // Allow overrides
+            let cache = [];
+            let images_dedupe = [];
+            for (let image in images) {
+                image = images[image]; // idx -> element
+
+                let split = image.split("/");
+                let filename = split[split.length-1];
+
+                if (!cache.includes(filename)) {
+                    images_dedupe.push(image);
+                    cache.push(filename);
+                }
+            }
+
+            return images_dedupe;
+
+        }
+
+        // Refreshes kiosk.
+        async function refreshKiosk() {
+            const images = await getKioskImages();
+
+            let secondOffset = (new Date(Date.now()).getSeconds()) < 30 ? 0 : 1;
+
+            let hash = ((new Date(Date.now()).getMinutes() * 2) + secondOffset) % images.length;
+
+            if (secondOffset == 0) { // secondary on screen
+                console.log(`[^ secondary] ${hash}: Primary to ${hash}`);
+                document.querySelector("#primary > div").style.backgroundImage = `url(${images[hash % images.length]})`;
+            } else { // primary on screen
+                console.log(`[v primary] ${hash}: Secondary to ${hash}`);
+                document.querySelector("#secondary > div").style.backgroundImage = `url(${images[(hash ) % images.length]})`;
+            }
+        }
+
+        // Refreshes marquee.
+        function refreshMarquee() {
+            fetch("https://cdn.hackucf.org/messages.txt")
+                .then(data => {
+                    return data.text();
+                })
+                .then(text => {
+                    const messages = text.split("\n");
+                    let output = `<p>Welcome to the <span>LMCO CyberLab!</span></p>`
+                    if (messages.length > 1) {
+                        // Marquee constructor
+                        output = `<marquee behavior="scroll">`
+                        let spacer = `<space></space>`
+                        for (let i = 0; i < messages.length; i++) {
+                            if (messages[i].replaceAll(" ", "") != "")
+                                output += messages[i] + spacer;
+                        }
+                        // Clear last spacer
+                        output = output.substring(0, output.length - spacer.length);
+                        output += `</marquee>`
+                    } else if (messages.length == 1) {
+                        // Static text constructor
+                        output = `<p>${messages[0]}</p>`;
+                    }
+
+                    if (document.getElementById("marquee").innerHTML != output)
+                        // intentional xss.
+                        document.getElementById("marquee").innerHTML = output;
+                })
+        }
+
+
+        // As frequent as possible
+        setInterval(_=> {
+            now = new Date(Date.now());
+            document.getElementById("time").innerText = now.toLocaleString("en-us", {"dateStyle": undefined, "timeStyle": "medium", "calendar": "iso8601"});
+        }, 250)
+
+        // init marquee
+        refreshMarquee();
+        refreshKiosk();
+    </script>
+</body>
+</html>
