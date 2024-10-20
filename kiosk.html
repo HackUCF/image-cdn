@@ -245,7 +245,7 @@
             let hash = ((new Date(Date.now()).getMinutes() * 2) + secondOffset) % images.length;
 
             let new_image = images[hash % images.length];
-            let prefix = new_image.indexOf("http://") == -1 ? CORS_PREFIX : "";
+            let prefix = new_image.indexOf("http://") !== -1 ? CORS_PREFIX : "";
 
             if (secondOffset == 0) { // secondary on screen
                 console.log(`[^ secondary] ${hash}: Primary to ${hash}`);
