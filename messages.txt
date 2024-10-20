@@ -1,4 +1,4 @@
-Welcome to the <span style="color: teal">Lockheed Martin Cyber Innovation Lab</span>!
+Welcome to the <span style="color: #0B8AD2">Lockheed Martin Cyber Innovation Lab</span>!
 Follow us on X/Twitter! <span>@HackUCF</span>
 Join Hack@UCF today at <span>Join.HackUCF.org</span>!
 This is called a marquee.
@@ -20,4 +20,3 @@ nya :3
 No horses were harmed in the making of this website. 🐎
 A word from our <span>CMO, J-Money</span>: "Every day is a good day to be a cyber athlete!"
 The brochures surrounding the CyberLab are free. Feel free to take one!
-<b style="color:pink">#AD:</b> If you want an iPhone 12 Mini for $175, email <code>jdivincent [at] hackucf [dot] org</code>.
