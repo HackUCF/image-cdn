@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Hack@UCF + CECS Channel</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests 'null'" />
     <style type="text/css">
         html {
             overflow: hidden;
@@ -177,7 +180,7 @@
 
         // Imports a Newton-compatible kiosk manifest.
         async function getManifest(url) {
-            const manifest = await fetch((CORS_PREFIX + url + "/index.txt").replace("//", "/"));
+            const manifest = await fetch((CORS_PREFIX + url + "/index.txt"));
             const text = await manifest.text();
             const lines = text.split("\n");
 
@@ -194,7 +197,7 @@
                 }
 
                 // Appends image file to list.
-                images.push((url + "/" + image_path[1]).replace("//", "/"));
+                images.push((url + "/" + image_path[1]));
             }
             return images;
         }
