@@ -2,9 +2,6 @@
 <html>
 <head>
     <title>Hack@UCF + CECS Channel</title>
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="upgrade-insecure-requests 'null'" />
     <style type="text/css">
         html {
             overflow: hidden;
@@ -247,12 +244,15 @@
 
             let hash = ((new Date(Date.now()).getMinutes() * 2) + secondOffset) % images.length;
 
+            let new_image = images[hash % images.length];
+            let prefix = new_image.indexOf("http://") == -1 ? CORS_PREFIX : "";
+
             if (secondOffset == 0) { // secondary on screen
                 console.log(`[^ secondary] ${hash}: Primary to ${hash}`);
-                document.querySelector("#primary > div").style.backgroundImage = `url(${images[hash % images.length]})`;
+                document.querySelector("#primary > div").style.backgroundImage = `url(${prefix + new_image})`;
             } else { // primary on screen
                 console.log(`[v primary] ${hash}: Secondary to ${hash}`);
-                document.querySelector("#secondary > div").style.backgroundImage = `url(${images[(hash ) % images.length]})`;
+                document.querySelector("#secondary > div").style.backgroundImage = `url(${prefix + new_image})`;
             }
         }
 
