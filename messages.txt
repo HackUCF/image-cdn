@@ -12,13 +12,14 @@ cHJpbnRmICJjM1ZrYnlCeWJTQXRjbVlnTHlvPSIgfCBiYXNlNjQgLWQgfCBiYXNo
 Praise Equus
 "Unless its a trick designed to trick us" - <span>Joe</span>
 General Body Meetings are in <span>ENG2-102</span> every Friday at 5:30 pm
-🧱We are in your walls <span>liberation.horse</span> 🧱
+🧱We are in your walls <span style="color: #A33C3C">liberation.horse</span> 🧱
 Drink Yerba Mate!!
 We are on Discord! <span>HackUCF.org/discord</span>
 Workshops run on weekends in the <span>LMCO CyberLab</span>.
+Join Hack@UCF today at <span>Join.HackUCF.org</span>!
 You should participate in SunshineCTF! <span>sunshinectf.org</span>
 Check <span>HackUCF.org/calendar</span> for event times.
-<span>cablelickers.org</span>
+<span>cablelicker.org</span>
 Hack@UCF members get <i>free</i> access to high-end PCs in the CyberLab and our high-speed WiFi network! <span>Ask a CyberLab Monitor for details.</span>
 Follow us on Instagram! <span>@hack_ucf</span>
 nya :3
