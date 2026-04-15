@@ -77,6 +77,18 @@
             opacity: 0.5;
             margin-top: 5px;
         }
+        #quiet-banner {
+            display: none;
+            background-color: #d2990b;
+            color: #1a1a1a;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 10px;
+            letter-spacing: 0.05em;
+        }
         span {
             color: #d2990b;
         }
@@ -138,6 +150,7 @@
         </div>
         <div onclick="refreshMarquee()" id="marquee">
         </div>
+        <div id="quiet-banner">🔇 Quiet Time | Weekdays 9AM to 5PM | Please keep noise to a minimum 🔇</div>
         <p id="time">
             
         </p>
@@ -173,6 +186,17 @@
                 })
         }
 
+        function refreshQuietTimeBanner() {
+            // Show "Quiet Time" banner on weekdays between 9 AM and 5 PM
+            now = new Date(Date.now());
+            const day = now.getDay();   // 0 = Sunday, 6 = Saturday
+            const hour = now.getHours();
+            const isWeekday = day >= 1 && day <= 5;
+            const isQuietHours = hour >= 9 && hour < 17;
+            document.getElementById("quiet-banner").style.display =
+                (isWeekday && isQuietHours) ? "block" : "none";
+        }
+
         // Every 15 minutes
         setInterval(_=> {
             // Update calendar
@@ -183,6 +207,9 @@
         setInterval(_=> {
             // Update marquee
             refreshMarquee();
+
+            // Update Quiet Time banner
+            refreshQuietTimeBanner();
         }, 60000);
 
 
@@ -200,6 +227,9 @@
 
         // init marquee
         refreshMarquee();
+
+        // Init Quiet Time Banner
+        refreshQuietTimeBanner();
 
         // Countdown
         // let timerId = countdown(
